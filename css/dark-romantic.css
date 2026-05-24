@@ -1,0 +1,369 @@
+/* ================================================================
+   DARK ROMANTIC ATMOSPHERE — BLUE CINEMATIC VERSION
+   One single continuous background · Midnight blue · Sapphire · Azure
+   ================================================================ */
+
+:root {
+  --dark-wine:    #02090e;
+  --dark-crimson: #05111a;
+  --dark-rose:    #0a1b2e;
+  --mid-rose:     #12294a;
+  --glow-rose:    rgba(50, 122, 180, 0.35);
+  --glow-pink:    rgba(100, 139, 255, 0.2);
+  --text-light:   rgba(220, 231, 255, 0.92);
+  --text-muted:   rgba(150, 177, 200, 0.7);
+}
+
+/* ================================================================
+   GLOBAL FIXED BACKGROUND SYSTEM
+   ================================================================ */
+
+html, body {
+  background: #020814 !important;
+  min-height: 100%;
+}
+
+#global-bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background:
+    linear-gradient(160deg,
+      #020814 0%,
+      #041120 15%,
+      #08182f 30%,
+      #0b2040 45%,
+      #102a52 60%,
+      #0b1e38 75%,
+      #061425 90%,
+      #020814 100%
+    );
+  pointer-events: none;
+}
+
+/* Ambient glowing blue radials */
+#global-bg-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 35% at 20% 20%, rgba(80, 170, 255, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 30% at 80% 15%, rgba(60, 140, 255, 0.14) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 35% at 15% 80%, rgba(90, 180, 255, 0.14) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 35% at 85% 85%, rgba(70, 130, 255, 0.16) 0%, transparent 50%);
+  pointer-events: none;
+  animation: bg-breathe 12s ease-in-out infinite alternate;
+}
+
+/* Cinematic edge glows */
+#global-bg-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 35% at 50% 0%, rgba(100, 180, 255, 0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 30% at 50% 100%, rgba(40, 110, 220, 0.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+@keyframes bg-breathe {
+  0%   { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* ================================================================
+   MAIN SITE
+   ================================================================ */
+
+#main-site {
+  background: transparent !important;
+  position: relative;
+}
+
+#main-site::before {
+  display: none !important;
+}
+
+#main-site::after {
+  display: none !important;
+}
+
+/* ================================================================
+   SECTIONS
+   ================================================================ */
+
+section,
+#hero,
+#message,
+#reasons,
+#garden,
+#memories {
+  background: transparent !important;
+}
+
+.garden-bg {
+  background: linear-gradient(180deg,
+    transparent,
+    rgba(25, 70, 140, 0.20) 30%,
+    rgba(15, 50, 110, 0.18) 70%,
+    transparent
+  ) !important;
+}
+
+#finale {
+  background: transparent !important;
+}
+
+footer {
+  background: rgba(3,10,20,0.95) !important;
+  border-top: 1px solid rgba(120, 180, 255, 0.14);
+}
+
+/* ================================================================
+   CINEMATIC VIGNETTE
+   ================================================================ */
+
+.cinematic-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    transparent 45%,
+    rgba(0,4,12,0.55) 100%
+  );
+}
+
+/* ================================================================
+   TEXT COLORS
+   ================================================================ */
+
+.hero-eyebrow {
+  color: rgba(170, 225, 255, 0.9) !important;
+}
+
+.hero-title .line1 {
+  color: rgba(235, 246, 255, 0.97) !important;
+}
+
+.hero-title .line2 {
+  color: rgba(120, 210, 255, 0.92) !important;
+}
+
+.hero-sub {
+  color: rgba(180, 205, 230, 0.82) !important;
+}
+
+.section-eyebrow {
+  color: rgba(140, 210, 255, 0.92) !important;
+}
+
+.section-title {
+  color: rgba(235, 245, 255, 0.96) !important;
+}
+
+.section-title em {
+  color: rgba(120, 210, 255, 0.95) !important;
+}
+
+.scroll-btn {
+  color: rgba(140, 180, 220, 0.72) !important;
+}
+
+.msg-title {
+  color: rgba(235, 245, 255, 0.96) !important;
+}
+
+.msg-body {
+  color: rgba(170, 195, 220, 0.86) !important;
+}
+
+.reason-card h3 {
+  color: rgba(230, 242, 255, 0.96) !important;
+}
+
+.reason-card p {
+  color: rgba(165, 190, 220, 0.82) !important;
+}
+
+.section-title.garden-title {
+  color: rgba(3, 83, 148, 0.96) !important;
+}
+
+.garden-note {
+  color: rgba(139, 184, 255, 0.72) !important;
+}
+
+.gallery-caption {
+  color: rgba(200, 225, 255, 0.95) !important;
+  background: rgba(0,0,0,0.30) !important;
+}
+
+.gallery-note {
+  color: rgba(150, 180, 210, 0.65) !important;
+}
+
+/* ================================================================
+   GLASS MORPHISM
+   ================================================================ */
+
+.glass {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(120, 190, 255, 0.16) !important;
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(180,220,255,0.08) !important;
+}
+
+.message-card {
+  background: rgba(255,255,255,0.07) !important;
+  border-color: rgba(120,190,255,0.18) !important;
+  box-shadow:
+    0 8px 60px rgba(0,0,0,0.55),
+    0 0 50px rgba(70,140,255,0.10),
+    inset 0 1px 0 rgba(200,230,255,0.10) !important;
+}
+
+.reason-card {
+  background: rgba(255,255,255,0.045) !important;
+  border-color: rgba(120,180,255,0.12) !important;
+  box-shadow:
+    0 4px 30px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(180,220,255,0.08) !important;
+}
+
+/* ================================================================
+   GALLERY PLACEHOLDER
+   ================================================================ */
+
+.gallery-placeholder {
+  background: linear-gradient(
+    135deg,
+    rgba(18, 45, 100, 0.55),
+    rgba(8, 20, 50, 0.45)
+  ) !important;
+}
+
+/* ================================================================
+   ORBS
+   ================================================================ */
+
+.orb {
+  position: absolute;
+  border-radius: 0;
+  background: none !important;
+}
+
+/* ================================================================
+   SCROLLBAR
+   ================================================================ */
+
+::-webkit-scrollbar-track {
+  background: #020814 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 150, 255, 0.5) !important;
+}
+
+/* ================================================================
+   SECTION SEPARATORS
+   ================================================================ */
+
+section + section::before {
+  content: '';
+  display: block;
+  width: 180px;
+  height: 1px;
+  margin: 0 auto -60px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(120, 190, 255, 0.25),
+    transparent
+  );
+}
+
+/* ================================================================
+   GLOBAL AMBIENT CONTINUITY
+   ================================================================ */
+
+#main-site::after {
+  display: block !important;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 80% 25% at 50% 18%, rgba(70, 140, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 20% at 20% 45%, rgba(40, 110, 220, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 20% at 80% 62%, rgba(60, 140, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 20% at 50% 78%, rgba(80, 160, 255, 0.08) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ================================================================
+   CANVAS FIX
+   ================================================================ */
+
+#particle-canvas,
+#floral-canvas,
+#falling-petals {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+#main-site section,
+#main-site footer {
+  position: relative !important;
+  z-index: 15 !important;
+}
+
+#hero,
+#message,
+#reasons,
+#garden,
+#memories,
+#finale {
+  background: transparent !important;
+}
+
+/* ================================================================
+   SECTION AMBIENT OVERLAYS
+   ================================================================ */
+
+#message::after,
+#reasons::after,
+#garden::after,
+#memories::after,
+#finale::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 100% 40% at 50% 100%,
+    rgba(0, 102, 255, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ================================================================
+   CONTENT ABOVE OVERLAYS
+   ================================================================ */
+
+.section-inner,
+.message-card,
+.reasons-grid,
+.flower-garden,
+.gallery-grid,
+.finale-inner {
+  position: relative;
+  z-index: 2;
+}

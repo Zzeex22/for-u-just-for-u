@@ -1,0 +1,280 @@
+/* ================================================================
+   GPU OPTIMIZATION — Compositing layer hints & paint containment
+   ================================================================ */
+
+/* ── Promote long-lived animated layers to GPU compositor ── */
+#floral-canvas,
+#particle-canvas,
+#particle-canvas-intro,
+#finale-canvas {
+  will-change: contents;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ── Contain painting to sections; prevent full-page repaints ── */
+#main-site  { contain: layout style; }
+#intro-scene { contain: layout style; }
+section     { contain: layout; }
+
+/* ── Falling petals: CSS-only animation, no JS per-frame ── */
+#falling-petals,
+#floating-orbs {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* ── Scrollable content: promote to own layer ── */
+.glass {
+  transform: translate3d(0, 0, 0);
+}
+
+/* ── Disable heavy filters on low-end ── */
+.tier-low .cinematic-vignette { opacity: 0.6 !important; }
+.tier-low .bg-flower { display: none; }
+.tier-low .hero-bg-flowers { display: none; }
+.tier-low .inline-flower { animation: none !important; }
+.tier-low .s-petal { animation-play-state: paused !important; }
+
+/* ── Reduce backdrop-filter cost on mid/low ── */
+.tier-low  .glass { backdrop-filter: blur(6px)  !important; -webkit-backdrop-filter: blur(6px)  !important; }
+.tier-mid  .glass { backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; }
+
+/* ── Passive scroll: hardware-accelerated transform parallax only ── */
+.parallax-layer { will-change: transform; }
+
+/* ── Cursor trail: contain within viewport ── */
+.cursor-petal {
+  contain: layout style size;
+  pointer-events: none;
+}
+
+/* ── Reduce motion for accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  #floral-canvas,
+  #particle-canvas,
+  #particle-canvas-intro,
+  .falling-petal,
+  .orb,
+  .bg-flower,
+  .cursor-petal,
+  .s-petal {
+    display: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ================================================================
+   GPU OPTIMIZATION — BLUE CINEMATIC OVERRIDE
+   Tambahkan paling bawah
+   ================================================================ */
+
+/* ── GPU Layers ── */
+#floral-canvas,
+#particle-canvas,
+#particle-canvas-intro,
+#finale-canvas {
+  will-change: contents;
+  transform: translate3d(0,0,0);
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  filter:
+    drop-shadow(0 0 18px rgba(120,190,255,0.08));
+}
+
+/* ── Main layers ── */
+#main-site {
+  contain: layout style;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(120,190,255,0.05),
+      transparent 45%
+    );
+}
+
+#intro-scene {
+  contain: layout style;
+
+  background:
+    linear-gradient(
+      135deg,
+      #07111d 0%,
+      #102544 45%,
+      #091626 100%
+    ) !important;
+}
+
+section {
+  contain: layout;
+}
+
+/* ── Floating particles ── */
+#falling-petals,
+#floating-orbs {
+  transform: translate3d(0,0,0);
+
+  backface-visibility: hidden;
+
+  will-change: transform;
+}
+
+/* ── Floating orb blue glow ── */
+.orb {
+  filter:
+    blur(1px)
+    drop-shadow(
+      0 0 20px rgba(120,190,255,0.18)
+    );
+}
+
+/* ── Glass panels ── */
+.glass {
+  transform: translate3d(0,0,0);
+
+  background:
+    rgba(220,240,255,0.12) !important;
+
+  border:
+    1px solid rgba(255,255,255,0.20) !important;
+
+  box-shadow:
+    0 10px 40px rgba(120,180,255,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+/* ── Low-end optimization ── */
+.tier-low .cinematic-vignette {
+  opacity: 0.45 !important;
+}
+
+.tier-low .bg-flower,
+.tier-low .hero-bg-flowers {
+  display: none;
+}
+
+.tier-low .inline-flower {
+  animation: none !important;
+}
+
+.tier-low .s-petal {
+  animation-play-state: paused !important;
+}
+
+/* ── Simpler glass for weak devices ── */
+.tier-low .glass {
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+
+  background:
+    rgba(210,230,255,0.10) !important;
+}
+
+.tier-mid .glass {
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+
+  background:
+    rgba(220,240,255,0.12) !important;
+}
+
+/* ── Parallax ── */
+.parallax-layer {
+  will-change: transform;
+
+  filter:
+    drop-shadow(
+      0 0 12px rgba(120,190,255,0.08)
+    );
+}
+
+/* ── Cursor petals ── */
+.cursor-petal {
+  contain: layout style size;
+
+  pointer-events: none;
+
+  filter:
+    drop-shadow(
+      0 0 10px rgba(120,190,255,0.18)
+    );
+}
+
+/* ── Accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+
+  #floral-canvas,
+  #particle-canvas,
+  #particle-canvas-intro,
+  .falling-petal,
+  .orb,
+  .bg-flower,
+  .cursor-petal,
+  .s-petal {
+    display: none !important;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Music player ── */
+#cp-root {
+  right: auto !important;
+
+  left: 28px !important;
+
+  bottom: 24px !important;
+
+  filter:
+    drop-shadow(
+      0 8px 24px rgba(120,190,255,0.20)
+    );
+}
+
+/* ── Extra cinematic blue atmosphere ── */
+#floating-orbs::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(120,190,255,0.08),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(150,210,255,0.07),
+      transparent 45%
+    ),
+
+    radial-gradient(
+      circle at 50% 85%,
+      rgba(120,170,255,0.05),
+      transparent 48%
+    );
+
+  pointer-events: none;
+}
+
+/* ── Music player: pindah ke kiri bawah ──
+   Supaya konten tengah tidak terganggu secara visual */
+#cp-root {
+  right: auto !important;
+  left: 28px !important;
+}

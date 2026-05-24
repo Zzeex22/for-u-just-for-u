@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>With Love, For You 🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Petit+Formal+Script&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/dark-romantic.css" />
+  <link rel="stylesheet" href="css/performance.css" />
+  <link rel="stylesheet" href="css/gpu-optimization.css" />
+  <!-- Device tier detection: runs synchronously so later scripts can read window.DeviceTier -->
+  <script src="js/device-tier-system.js"></script>
+</head>
+<body>
+
+  <!-- ===== GLOBAL CINEMATIC BACKGROUND (fixed, z=-10, one unified layer) ===== -->
+  <div id="global-bg-layer" aria-hidden="true"></div>
+
+  <!-- ===== INTRO SCENE ===== -->
+  <div id="intro-scene">
+    <canvas id="particle-canvas-intro"></canvas>
+    <div id="gift-wrapper">
+      <div id="gift-container" onclick="openGift()">
+        <div id="gift-box">
+          <div class="gift-lid">
+            <div class="ribbon-h"></div>
+            <div class="ribbon-v"></div>
+            <div class="bow">
+              <div class="bow-left"></div>
+              <div class="bow-right"></div>
+              <div class="bow-center"></div>
+            </div>
+          </div>
+          <div class="gift-body">
+            <div class="ribbon-body-h"></div>
+            <div class="ribbon-body-v"></div>
+          </div>
+        </div>
+        <p class="gift-hint">✨ tap to open ✨</p>
+      </div>
+      <div id="bloom-container"></div>
+    </div>
+    <div id="petal-rain-intro"></div>
+    <div id="intro-overlay"></div>
+  </div>
+
+  <!-- Fixed ambient layers — live at body level so they cover ALL sections -->
+  <div class="cinematic-vignette"></div>
+  <canvas id="particle-canvas"></canvas>
+  <div id="falling-petals"></div>
+
+  <!-- ===== MAIN WEBSITE ===== -->
+  <div id="main-site" class="hidden">
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow"></p>
+        <h1 class="hero-title">
+          <span class="line1">For You,</span>
+          <span class="line2 italic">Happy Birthday!</span>
+        </h1>
+        <p class="hero-sub">Happy birthday, thank you for all the little happiness that came  with you.</p>
+        <div class="hero-flowers">
+          <svg class="hero-flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g class="flower-group">
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,182,193,0.85)" class="petal p1"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,182,193,0.85)" class="petal p2" transform="rotate(60,50,50)"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,182,193,0.85)" class="petal p3" transform="rotate(120,50,50)"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,192,203,0.85)" class="petal p4" transform="rotate(180,50,50)"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,192,203,0.85)" class="petal p5" transform="rotate(240,50,50)"/>
+              <ellipse cx="50" cy="30" rx="12" ry="22" fill="rgba(255,192,203,0.85)" class="petal p6" transform="rotate(300,50,50)"/>
+              <circle cx="50" cy="50" r="10" fill="rgba(255,220,180,0.95)"/>
+            </g>
+          </svg>
+        </div>
+        <a href="#message" class="scroll-btn">
+          <span>Scroll to discover</span>
+          <div class="scroll-arrow">↓</div>
+        </a>
+      </div>
+      
+        
+        
+        
+      </div>
+    </section>
+
+    <!-- ===== MESSAGE ===== -->
+    <section id="message">
+      <div class="section-inner">
+        <div class="message-card glass">
+          <div class="card-flowers-top">
+            <span class="inline-flower">🌸</span>
+            <span class="inline-flower delay1">🌺</span>
+            <span class="inline-flower delay2">🌸</span>
+          </div>
+          <p class="msg-label">from my heart</p>
+          <p class="msg-body">Mungkin aku memang tidak pernah pandai menunjukkan sesuatu di waktu yang tepat. Mungkin aku terlalu lama mengubah perasaan menjadi kepastian. Tapi bahkan di tengah jarak dan diam di antara kita, ada perasaan yang benar-benar tidak  berubah.</p>
+          <p class="msg-body">Di tengah semua kekacauan dan banyaknya isi kepalaku, kamu menjadi salah satu dari sedikitnya hal yang terasa tenang. Terima kasih untuk setiap senyuman yang tanpa sadar kamu ciptakan, untuk setiap momen kecil yang tinggal lebih lama di hatiku dari yang seharusnya.</p>
+          <p class="msg-body">These flowers may wither someday, but what I feel for you quietly endures far longer than words can express.</p>
+          <div class="msg-signature">—sincerely, me</div>
+        </div>
+      </div>
+      <div class="section-petals">
+        <div class="s-petal sp1">🌸</div>
+        <div class="s-petal sp2">🌺</div>
+        <div class="s-petal sp3">🌼</div>
+        <div class="s-petal sp4">🌸</div>
+        <div class="s-petal sp5">🌷</div>
+      </div>
+    </section>
+
+    <!-- ===== GARDEN ===== -->
+    <section id="garden">
+      <div class="garden-bg"></div>
+      <div class="section-inner">
+        <p class="section-eyebrow">our secret garden</p>
+        <h2 class="section-title garden-title">A Garden Grown<br/><em>Just For You</em></h2>
+        <div class="flower-garden">
+          <div class="garden-flower gf1"><div class="gf-bloom">🌹</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Rose</strong><span>Endless Love</span></div></div>
+          <div class="garden-flower gf2"><div class="gf-bloom">🌸</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Cherry Blossom</strong><span>Gentle Beauty</span></div></div>
+          <div class="garden-flower gf3"><div class="gf-bloom">🪷</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Lotus</strong><span>Pure Heart</span></div></div>
+          <div class="garden-flower gf4"><div class="gf-bloom">🌺</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Hibiscus</strong><span>Delicate Passion</span></div></div>
+          <div class="garden-flower gf5"><div class="gf-bloom">🌼</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Daisy</strong><span>True Devotion</span></div></div>
+          <div class="garden-flower gf6"><div class="gf-bloom">🌷</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Tulip</strong><span>Perfect Happiness</span></div></div>
+          <div class="garden-flower gf7"><div class="gf-bloom">🌻</div><div class="gf-stem"></div><div class="gf-tooltip glass"><strong>Sunflower</strong><span>Warmth & Joy</span></div></div>
+        </div>
+        <p class="garden-note">✨ hover each flower to discover its meaning ✨</p>
+      </div>
+    </section>
+
+    <!-- ===== MEMORIES ===== -->
+
+
+    <!-- ===== FINALE ===== -->
+    <section id="finale">
+      <canvas id="finale-canvas"></canvas>
+      <div class="finale-inner">
+        <div class="finale-flowers">
+          <span class="ff"></span><span class="ff delay1"></span><span class="ff delay2">🌹</span><span class="ff delay3">🌸</span><span class="ff delay4">🌷</span>
+        </div>
+        <p class="finale-eyebrow">The world is praying for you</p>
+        <p class="finale-body">Wherever life takes you, may this year bring you calmer days, a more peaceful mind, and happiness that lasts longer than sadness. You deserve all the good things life has to offer.</p>
+
+        <p class="finale-sig"></p>
+        <a href="https://wa.me/6283185877156" class="wa-text-btn" target="_blank">Maybe you want to say something to me?</a>
+      </div>
+    </section>
+
+    <footer><p> for you </p></footer>
+  </div>
+
+  <!-- Scripts — tier already set in <head>; engine files load in dependency order -->
+  <script src="js/render-loop.js"></script>
+  <script src="js/particle-pool.js"></script>
+  <script src="js/performance-manager.js"></script>
+  <script src="js/canvas-flower-engine.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/audio-system.js"></script>
+  <script src="js/intro.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
