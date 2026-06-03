@@ -259,3 +259,21 @@ footer { background: #08121f !important; text-align: center; padding: 30px 20px;
   .bouquet-caption { font-size: 1.3rem !important; }
   .wa-text-btn { font-size: 1rem !important; margin-bottom: 60px !important; }
 }
+
+/* =======================================================
+   🌸 FIX WARNA LABEL NAMA BUNGA (GARDEN TOOLTIP)
+   ======================================================= */
+.gf-tooltip {
+  background: rgba(10, 25, 45, 0.85) !important; /* Background digelapin dikit biar teks makin pop-up */
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.gf-tooltip strong { 
+  color: #ffffff !important; /* Nama bunga jadi putih terang */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+.gf-tooltip span { 
+  color: #a7dcf4 !important; /* Makna bunga jadi biru muda terang */
+}
