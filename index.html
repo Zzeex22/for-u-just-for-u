@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>happy Birthday!!</title>
+  <title>Happy Birthday!!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Petit+Formal+Script&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/dark-romantic.css" />
   <link rel="stylesheet" href="css/performance.css" />
   <link rel="stylesheet" href="css/gpu-optimization.css" />
-  <!-- Device tier detection: runs synchronously so later scripts can read window.DeviceTier -->
+  
   <script src="js/device-tier-system.js"></script>
 </head>
 <body>
 
-  <!-- ===== GLOBAL CINEMATIC BACKGROUND (fixed, z=-10, one unified layer) ===== -->
   <div id="global-bg-layer" aria-hidden="true"></div>
 
-  <!-- ===== INTRO SCENE ===== -->
   <div id="intro-scene">
     <canvas id="particle-canvas-intro"></canvas>
     <div id="gift-wrapper">
@@ -48,15 +47,12 @@
     <div id="intro-overlay"></div>
   </div>
 
-  <!-- Fixed ambient layers — live at body level so they cover ALL sections -->
   <div class="cinematic-vignette"></div>
   <canvas id="particle-canvas"></canvas>
   <div id="falling-petals"></div>
 
-  <!-- ===== MAIN WEBSITE ===== -->
   <div id="main-site" class="hidden">
 
-    <!-- ===== HERO ===== -->
     <section id="hero">
       <div class="hero-content">
         <p class="hero-eyebrow"></p>
@@ -64,7 +60,7 @@
           <span class="line1">For You,</span>
           <span class="line2 italic">Happy Birthday!</span>
         </h1>
-        <p class="hero-sub">Happy birthday, thank you for all the little happiness that came  with you.</p>
+        <p class="hero-sub">Happy birthday, thank you for all the little happiness that came with you.</p>
         <div class="hero-flowers">
           <svg class="hero-flower" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <g class="flower-group">
@@ -83,14 +79,8 @@
           <div class="scroll-arrow">↓</div>
         </a>
       </div>
-      
-        
-        
-        
-      </div>
     </section>
 
-    <!-- ===== MESSAGE ===== -->
     <section id="message">
       <div class="section-inner">
         <div class="message-card glass">
@@ -100,7 +90,7 @@
             <span class="inline-flower delay2">🌸</span>
           </div>
           <p class="msg-label">Today I worked up the courage</p>
-          <p class="msg-body">Mungkin aku memang tidak pernah pandai menunjukkan sesuatu di waktu yang tepat. Mungkin aku terlalu lama mengubah perasaan menjadi kepastian. Tapi bahkan di tengah jarak dan diam di antara kita, ada perasaan yang benar-benar tidak  berubah.</p>
+          <p class="msg-body">Mungkin aku memang tidak pernah pandai menunjukkan sesuatu di waktu yang tepat. Mungkin aku terlalu lama mengubah perasaan menjadi kepastian. Tapi bahkan di tengah jarak dan diam di antara kita, ada perasaan yang benar-benar tidak berubah.</p>
           <p class="msg-body">Di tengah semua kekacauan dan banyaknya isi kepalaku, kamu menjadi salah satu dari sedikitnya hal yang terasa tenang. Terima kasih untuk setiap senyuman yang tanpa sadar kamu ciptakan, untuk setiap momen kecil yang tinggal lebih lama di hatiku dari yang seharusnya.</p>
           <p class="msg-body">These flowers may wither someday, but what I feel for you quietly endures far longer than words can express.</p>
           <div class="msg-signature">—sincerely, me</div>
@@ -115,7 +105,6 @@
       </div>
     </section>
 
-    <!-- ===== GARDEN ===== -->
     <section id="garden">
       <div class="garden-bg"></div>
       <div class="section-inner">
@@ -134,10 +123,6 @@
       </div>
     </section>
 
-    <!-- ===== MEMORIES ===== -->
-
-
-    <!-- ===== FINALE ===== -->
     <section id="finale">
       <canvas id="finale-canvas"></canvas>
       <div class="finale-inner">
@@ -155,7 +140,6 @@
     <footer><p> for you </p></footer>
   </div>
 
-  <!-- Scripts — tier already set in <head>; engine files load in dependency order -->
   <script src="js/render-loop.js"></script>
   <script src="js/particle-pool.js"></script>
   <script src="js/performance-manager.js"></script>

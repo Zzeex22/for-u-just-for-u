@@ -1240,3 +1240,123 @@ footer{
   transform: translateY(-2px);
   text-shadow: 0 0 10px rgba(182, 203, 255, 0.8);
 }
+
+/* =======================================================
+   📱 MOBILE RESPONSIVE FIX (Super Rapih di HP)
+   ======================================================= */
+
+@media (max-width: 768px) {
+  /* 1. Mencegah horizontal scroll (layar geser ke samping) */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* 2. Ukuran Teks Hero & Section biar gak kegedean */
+  .hero-title {
+    font-size: clamp(2.2rem, 9vw, 3rem) !important;
+  }
+  .hero-eyebrow, .section-eyebrow {
+    font-size: 1rem !important;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 7vw, 2.2rem) !important;
+    margin-bottom: 25px !important;
+  }
+
+  /* 3. Section padding diperkecil biar ga banyak ruang kosong */
+  section {
+    padding: 60px 15px !important;
+  }
+
+  /* 4. Memperbaiki Kotak Kado (Gift) biar gak meluber di HP */
+  #gift-box {
+    width: 110px !important;
+    height: 110px !important;
+  }
+  .gift-lid {
+    width: 126px !important; /* Harus lebih lebar dikit dari box */
+    height: 40px !important;
+    left: -8px !important;
+  }
+  .gift-body {
+    width: 110px !important;
+    height: 75px !important;
+  }
+  
+  /* Sesuaikan letak pita karena ukuran kado mengecil */
+  .bow-left { left: -20px !important; }
+  .bow-right { left: 8px !important; }
+
+  /* 5. Kotak Pesan & Kartu (Glassmorphism) biar pas di tengah */
+  .message-card {
+    padding: 30px 20px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    border-radius: 16px !important;
+  }
+  .msg-title {
+    font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+    margin-bottom: 15px !important;
+  }
+  .msg-body {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* 6. Grid (Memories & Reasons) dipaksa 1 kolom penuh */
+  .reasons-grid, .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+    padding: 0 5px !important;
+  }
+
+  /* 7. Taman Bunga (Garden) dirapatkan */
+  .flower-garden {
+    gap: 10px !important;
+    padding: 20px 0 !important;
+  }
+  .gf-bloom {
+    font-size: 2rem !important; /* Bunga dikecilin dikit */
+  }
+  .gf-stem {
+    height: 50px !important; /* Batang dipendekin */
+  }
+  .gf-tooltip {
+    min-width: 90px !important;
+    font-size: 0.7rem !important;
+    padding: 6px !important;
+  }
+
+  /* 8. Finale & Tombol WA */
+  .finale-title {
+    font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
+  }
+  .finale-body {
+    font-size: 0.9rem !important;
+  }
+  .wa-text-btn {
+    font-size: 1rem !important;
+    margin-bottom: 60px !important; /* Kasih jarak biar gak ketutup tombol music */
+  }
+
+  /* 9. Music Player & Tombol Floating */
+  #cp-toggle-btn {
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+  .cp-toggle-icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  #cp-root {
+    bottom: 75px !important;
+    right: 15px !important;
+    left: auto !important; /* Reset posisi */
+    width: calc(100vw - 40px) !important;
+    max-width: 260px !important;
+  }
+}
