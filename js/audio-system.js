@@ -14,10 +14,10 @@
 const playlist = [
   {
     id:        'song1',
-    title:     'One Thing',
-    artist:    'One Direction',
+    title:     'Prologue',
+    artist:    'Reality Club',
     file:      'music/song1.mp3',
-    cover:     'assets/music-cover/song1.jpg',
+    cover:     'assets/music-cover/song1.png',
     startTime: 0,       // seconds — where playback begins
     endTime:   null,    // seconds — where it ends/loops (null = full track)
     loopStart: null,    // loop rewind point (null = startTime)
@@ -28,8 +28,8 @@ const playlist = [
   },
   {
     id:        'song2',
-    title:     'Song Title 2',
-    artist:    'Artist Name',
+    title:     'song title 2',
+    artist:    'song',
     file:      'music/song2.mp3',
     cover:     'assets/music-cover/song2.jpg',
     startTime: 0,
